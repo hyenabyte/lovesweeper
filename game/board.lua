@@ -3,7 +3,7 @@
 deque = require("lib/deque")
 events = require("lib/events")
 
-local BOARD = 
+local BOARD =
 {
 
     width = 16,
@@ -15,7 +15,7 @@ local BOARD =
 
     tile_size = 32,
 
-    
+
     mines = {},
     numbers = {},
     mines_laid = false,
@@ -43,7 +43,7 @@ function BOARD:new(o)
     o = o or {}
 	setmetatable(o, self)
     self.__index = self
-    
+
     self.events = events:new()
     self.events:setup(true)
 
@@ -168,9 +168,9 @@ function BOARD:mouse_click(btn, x, y)
 
     coords = self:coords_to_grid(x,y)
 
-    if coords[1] < 1 or 
-       coords[1] > self.width or 
-       coords[2] < 1 or 
+    if coords[1] < 1 or
+       coords[1] > self.width or
+       coords[2] < 1 or
        coords[2] > self.height then
         return
     end
@@ -188,9 +188,9 @@ end
 -- convert canvas coords to grid coords
 function BOARD:coords_to_grid(x,y)
 
-    if x < self.offset_x or 
-       y < self.offset_y or 
-       x > self.offset_x + self.width * self.tile_size or 
+    if x < self.offset_x or
+       y < self.offset_y or
+       x > self.offset_x + self.width * self.tile_size or
        y > self.offset_y + self.width * self.tile_size then
         return {-1,-1}
     end
@@ -219,7 +219,7 @@ function BOARD:click_tile(x,y)
             self:explode()
             return
         end
-        
+
         -- uncover tile
         self:uncover(x,y)
     end
@@ -278,10 +278,10 @@ function BOARD:uncover(x,y,queue)
 
         -- check first tile in queue
         tile = q:pop_right()
-        
+
         t_x = tile[1]
         t_y = tile[2]
-        
+
         if self.tiles[t_x][t_y] == self.t_covered then
 
             -- set current to blank
@@ -294,7 +294,7 @@ function BOARD:uncover(x,y,queue)
 
                 -- add covered- non-mine-neighbors to list and continue loop
                 for k,item in pairs(neighbors) do
-                    if self.tiles[item[1]][item[2]] == self.t_covered and 
+                    if self.tiles[item[1]][item[2]] == self.t_covered and
                        self.mines[item[1]][item[2]] == self.t_blank then
                         q:push_left({item[1], item[2]})
                     end

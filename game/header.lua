@@ -1,6 +1,6 @@
 -- Game header
 
--- 
+--
 local ts = require("game/tileset")
 local g = require("lib/gui")
 local btn = require("lib/button")

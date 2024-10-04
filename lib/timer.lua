@@ -1,6 +1,6 @@
 -- A timer
 
-local TIMER = 
+local TIMER =
 {
     time_s = 0,
     time_c = 0,
@@ -33,7 +33,7 @@ end
 function TIMER:get_time()
     if self.running then
         return (love.timer.getTime() - self.time_s) +  self.time_c
-    else 
+    else
         return self.time_c
     end
 end

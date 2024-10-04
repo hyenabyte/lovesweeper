@@ -1,8 +1,8 @@
 local ev = require('lib.events')
 local gui = require('lib.gui')
 
-local BUTTON = 
-{   
+local BUTTON =
+{
 	active = true,
 	pos_x = 0,
 	pos_y = 0,
@@ -24,7 +24,7 @@ function BUTTON:new(o)
 	self.events:setup()
 	self.events:add('on_click')
     self.events:add('on_hover')
-    
+
     self.gui = gui:new()
 	return o
 end
@@ -34,7 +34,7 @@ function BUTTON:setup(x,y,w,h,label)
 	self.pos_y = y
 	self.size_w = w
     self.size_h = h
-    
+
     self.label = label or self.label
     self.label_text = love.graphics.newText(def_font, self.label)
 end
@@ -74,7 +74,7 @@ function BUTTON:content()
     love.graphics.rectangle("fill", self.pos_x, self.pos_y, self.size_w, self.size_h)
 
     love.graphics.setColor(0,0,0,1)
-    
+
 
     t_h = self.label_text:getHeight()
     t_w = self.label_text:getWidth()
@@ -83,11 +83,11 @@ function BUTTON:content()
     label_offset_y = self.size_h / 2 - t_h / 2
 
     love.graphics.draw(self.label_text, self.pos_x + label_offset_x, self.pos_y + label_offset_y)
-    
+
 end
 
 function BUTTON:draw()
-	if not self.active then return end	
+	if not self.active then return end
 	self:content()
 	love.graphics.setColor(1,1,1,1)
 end

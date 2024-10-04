@@ -1,8 +1,8 @@
 local b = require('lib.button')
 local gui = require('lib.gui')
 
-local WINDOW = 
-{   
+local WINDOW =
+{
     window_x = 10,
     window_y = 10,
     window_w = 128,

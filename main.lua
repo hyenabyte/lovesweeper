@@ -3,13 +3,13 @@ minesweeper = require("game/game")
 function love.load()
 	love.graphics.setBackgroundColor(35/255, 42/255, 50/255, 1)
     love.graphics.setDefaultFilter('nearest', 'nearest', 1)
-    
+
     math.randomseed( os.time() )
     math.random(); math.random(); math.random()
 
     def_font = love.graphics.newFont( "assets/fonts/MatchupPro.ttf", 30, "normal" )
 
-    
+
     minesweeper.setup()
     minesweeper.new_game()
 end

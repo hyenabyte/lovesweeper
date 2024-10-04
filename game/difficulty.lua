@@ -1,4 +1,4 @@
-local DIFFICULTY = 
+local DIFFICULTY =
 {
     -- Easy: 9x9 - 10 mines
     -- Medium: 16x16 - 40 mines
